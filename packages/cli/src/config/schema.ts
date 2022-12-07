@@ -920,7 +920,7 @@ export const schema = {
 			doc: 'Whether diagnostic mode is enabled.',
 			format: Boolean,
 			default: true,
-			env: 'N8N_DIAGNOSTICS_ENABLED',
+			// env: 'N8N_DIAGNOSTICS_ENABLED',
 		},
 		config: {
 			posthog: {
@@ -948,7 +948,7 @@ export const schema = {
 					doc: 'Data source name for error tracking on Sentry',
 					format: String,
 					default:
-						'https://1f954e089a054b8e943ae4f4042b2bff@o1420875.ingest.sentry.io/4504016528408576',
+						'https://29c4cd213e5f497db7bb7833b255bc5e@o1420875.ingest.sentry.io/4504287834079232',
 					env: 'N8N_SENTRY_DSN',
 				},
 			},
@@ -1004,7 +1004,7 @@ export const schema = {
 		},
 		activationKey: {
 			format: String,
-			default: '',
+			default: '2be54a6f-26b8-4316-8b44-af16d6601e5b',
 			env: 'N8N_LICENSE_ACTIVATION_KEY',
 			doc: 'Activation key to initialize license',
 		},
