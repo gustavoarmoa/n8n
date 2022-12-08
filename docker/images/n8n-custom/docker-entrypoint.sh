@@ -5,12 +5,12 @@ if [ "$#" -gt 0 ]; then
 
   if [[ "$COMMAND" == "n8n" ]]; then
     shift
-    (cd packages/cli; exec node ./bin/n8n "$@")
+    (cd /app/packages/cli; exec node ./bin/n8n "$@")
   else
     exec node "$@"
   fi
 
 else
 # Got started without arguments
-cd packages/cli; exec node ./bin/n8n
+cd /app/packages/cli; exec node ./bin/n8n
 fi

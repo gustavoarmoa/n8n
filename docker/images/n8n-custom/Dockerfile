@@ -22,7 +22,7 @@ RUN rm -rf patches .npmrc *.yaml node_modules/.cache packages/**/node_modules/.c
 
 # 2. Start with a new clean image with just the code that is needed to run n8n
 FROM n8nio/base:${NODE_VERSION}
-COPY --from=builder /home/node ./
+COPY --from=builder /home/node /app
 COPY docker/images/n8n-custom/docker-entrypoint.sh /
 
 RUN \
