@@ -2788,6 +2788,12 @@ export function getLoadOptionsFunctions(
 			getCurrentNodeParameters: (): INodeParameters | undefined => {
 				return additionalData.currentNodeParameters;
 			},
+			getWorkflow: () => {
+				return getWorkflowMetadata(workflow);
+			},
+			getWorkflowStaticData(type: string): IDataObject {
+				return workflow.getStaticData(type, node);
+			},
 			getNode: () => {
 				return getNode(node);
 			},
@@ -2915,6 +2921,9 @@ export function getExecuteHookFunctions(
 			},
 			getNode: () => {
 				return getNode(node);
+			},
+			getRestApiUrl: (): string => {
+				return additionalData.restApiUrl;
 			},
 			getNodeParameter: (
 				parameterName: string,
@@ -3070,6 +3079,9 @@ export function getExecuteWebhookFunctions(
 			},
 			getNode: () => {
 				return getNode(node);
+			},
+			getRestApiUrl: (): string => {
+				return additionalData.restApiUrl;
 			},
 			getNodeParameter: (
 				parameterName: string,
