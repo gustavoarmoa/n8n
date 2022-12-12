@@ -461,13 +461,17 @@ export class WorkflowDataProxy {
 			{},
 			{
 				get(target, name, receiver) {
-					if (
-						typeof process === 'undefined' || // env vars are inaccessible to frontend
-						process.env.N8N_BLOCK_ENV_ACCESS_IN_NODE === 'true'
-					) {
+					if (process.env.N8N_BLOCK_ENV_ACCESS_IN_NODE === 'true') {
 						throw new ExpressionError('access to env vars denied', {
 							causeDetailed:
 								'If you need access please contact the administrator to remove the environment variable ‘N8N_BLOCK_ENV_ACCESS_IN_NODE‘',
+							runIndex: that.runIndex,
+							itemIndex: that.itemIndex,
+							failExecution: true,
+						});
+					}
+					if (typeof process === 'undefined') {
+						throw new ExpressionError('No preview available for $env expressions', {
 							runIndex: that.runIndex,
 							itemIndex: that.itemIndex,
 							failExecution: true,
